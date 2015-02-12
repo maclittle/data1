@@ -12,27 +12,27 @@ public interface FiniteSet {
     boolean isEmptyHuh(FiniteSet t);
     
     //Determines if elt is in FiniteSet t
-    boolean member(FiniteSet t, int elt);
+    boolean member(int elt);
     
     //Returns a FiniteSet containing elt and everything in t
-    FiniteSet add(FiniteSet t, int elt);
+    FiniteSet add(int elt);
     
     //Returns a FiniteSet containing everything in t except elt
-    FiniteSet remove(FiniteSet t, int elt);
+    FiniteSet remove(int elt);
     
     //Returns a FiniteSet containing everything in t and u
-    FiniteSet union(FiniteSet t, FiniteSet u);
+    FiniteSet union(FiniteSet u);
     
     //Returns a FiniteSet containing everything in both t and u
-    FiniteSet inter(FiniteSet t, FiniteSet u);
+    FiniteSet inter(FiniteSet u);
     
     //Returns a FiniteSet containing everything in u except those in t
-    FiniteSet diff(FiniteSet t, FiniteSet u);
+    FiniteSet diff(FiniteSet u);
     
     //Determines if FiniteSets t and u contain the same elements
-    boolean equal(FiniteSet t, FiniteSet u);
+    boolean equal(FiniteSet u);
     
     //Determines if t is a subset of u
-    boolean subset(FiniteSet t, FiniteSet u);
+    boolean subset(FiniteSet u);
     
 }

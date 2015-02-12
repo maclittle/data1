@@ -17,38 +17,38 @@ public class Leaf implements FiniteSet {
     }
     
     public boolean isEmptyHuh(FiniteSet t){
-        return (t == new Leaf());
+        return true;
     }
     
-    public boolean member(FiniteSet t, int elt){
-        return (t.key == elt);
+    public boolean member(int elt){
+        return false;
     }
     
-    public FiniteSet add(FiniteSet t, int elt){
+    public FiniteSet add(int elt){
         return new Branch(this, elt, this);
     }
     
-    public FiniteSet remove(FiniteSet t, int elt){
+    public FiniteSet remove(int elt){
+        return new Leaf();
+    }
+    
+    public FiniteSet union(FiniteSet u){
         
     }
     
-    public FiniteSet union(FiniteSet t, FiniteSet u){
+    public FiniteSet inter(FiniteSet u){
         
     }
     
-    public FiniteSet inter(FiniteSet t, FiniteSet u){
+    public FiniteSet diff(FiniteSet u){
         
     }
     
-    public FiniteSet diff(FiniteSet t, FiniteSet u){
+    public boolean equal(FiniteSet u){
         
     }
     
-    public boolean equal(FiniteSet t, FiniteSet u){
-        
-    }
-    
-    public boolean subset(FiniteSet t, FiniteSet u){
-        
+    public boolean subset(FiniteSet u){
+        return false;
     }
 }
