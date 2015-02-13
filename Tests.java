@@ -29,7 +29,28 @@ public class Tests {
         return (t.inter(u).subset(t));
     }
     
+    // Tests whether if one set is equal to itself, then the difference between 
+    // the set and itself is the empty set
+    // - This is a test of equal, diff, and isEmptyHuh
+    public static boolean equalTest(FiniteSet t){
+        return ((t.equal(t))) == (t.diff(t).isEmptyHuh());
+    }
+    
+    // Tests if y is a member of set t with added element x, then either x=y
+    // or y is already a member of t
+    // - This is a test of add and member
+    public static boolean memberTest(FiniteSet t, int x, int y){
+        return (((t.add(x)).member(y)) == (x == y)) ||
+               (((t.add(x)).member(y)) == (t.member(y)));
+    }
 
+    // Tests if the cardinality of FiniteSet t is greater than or equal to the
+    // cardinality of t after removing (or trying to remove) int x
+    // - This is a test of remove and cardinality
+    public static boolean removeTest(FiniteSet t, int x){
+        return ((t.remove(x).cardinality()) <= t.cardinality());
+    }
+    
     public static void main(String[] args) {
         // FiniteSet example
         FiniteSet bot = new Leaf();
@@ -70,7 +91,7 @@ public class Tests {
             FiniteSet set2 = (randomFiniteSet(size, max));
             if (!unionTest(set1, set2)) {
                 System.out.println("unionTest has failed on sets " + set1
-                        + " , " + set2);
+                        + ", " + set2);
             }
         }
         
@@ -80,7 +101,7 @@ public class Tests {
             FiniteSet set2 = (randomFiniteSet(size, max));
             if (!unionTest(set1, set2)) {
                 System.out.println("unionTest has failed on sets " + set1
-                        + " , " + set2);
+                        + ", and" + set2);
             }
         }
         
@@ -90,9 +111,36 @@ public class Tests {
             FiniteSet set2 = (randomFiniteSet(size, max));
             if (!interTest(set1, set2)) {
                 System.out.println("interTest has failed on sets " + set1
-                        + " , " + set2);
+                        + ", and " + set2);
             }
         }
-
         
+        //Runs equalTest 100 times with random sets
+        for (int i = 0; i < 100; i++) {
+            FiniteSet set1 = (randomFiniteSet(size, max));
+            if (!equalTest(set1)) {
+                System.out.println("equalTest has failed on set " + set1);
+            }
+        }
+        
+        //Runs memberTest 100 times with random sets
+        for (int i = 0; i < 100; i++) {
+            FiniteSet set1 = (randomFiniteSet(size, max));
+            int x = (int) (size * Math.random());
+            int y = (int) (size * Math.random());
+            if (!memberTest(set1, x, y)) {
+                System.out.println("memberTest has failed on set " + set1 +
+                        ", " + x + ", and " +y);
+            }
+        }
+        
+        //Runs memberTest 100 times with random sets
+        for (int i = 0; i < 100; i++) {
+            FiniteSet set1 = (randomFiniteSet(size, max));
+            int x = (int) (size * Math.random());
+            if (!removeTest(set1, x)) {
+                System.out.println("removeTest has failed on set " + set1 +
+                        " and " + x);
+            }
+        }
     }
