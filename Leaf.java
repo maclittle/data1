@@ -1,4 +1,4 @@
-package finitesets;
+package data1;
 
 public class Leaf implements FiniteSet {
     
@@ -33,19 +33,19 @@ public class Leaf implements FiniteSet {
     }
     
     public FiniteSet union(FiniteSet u){
-        
+        return u;
     }
     
     public FiniteSet inter(FiniteSet u){
-        
+        return new Leaf();
     }
     
     public FiniteSet diff(FiniteSet u){
-        
+        return u;
     }
     
     public boolean equal(FiniteSet u){
-        
+        return isEmptyHuh(u);
     }
     
     public boolean subset(FiniteSet u){

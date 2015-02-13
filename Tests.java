@@ -1,4 +1,4 @@
-package finitesets;
+package data1;
 
 
 public class Tests {
