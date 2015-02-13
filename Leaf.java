@@ -12,11 +12,11 @@ public class Leaf implements FiniteSet {
         return new Leaf();
     }
     
-    public int cardinality(FiniteSet t){
+    public int cardinality(){
         return 0;
     }
     
-    public boolean isEmptyHuh(FiniteSet t){
+    public boolean isEmptyHuh(){
         return true;
     }
     
@@ -45,10 +45,10 @@ public class Leaf implements FiniteSet {
     }
     
     public boolean equal(FiniteSet u){
-        return isEmptyHuh(u);
+        return u.isEmptyHuh();
     }
     
     public boolean subset(FiniteSet u){
-        return false;
+        return true;
     }
 }

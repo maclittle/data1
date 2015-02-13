@@ -6,10 +6,10 @@ public interface FiniteSet {
     FiniteSet empty();
     
     //Returns the number of elements in FiniteSet t
-    int cardinality(FiniteSet t);
+    int cardinality();
     
     //Determines if the FiniteSet t is empty
-    boolean isEmptyHuh(FiniteSet t);
+    boolean isEmptyHuh();
     
     //Determines if elt is in FiniteSet t
     boolean member(int elt);

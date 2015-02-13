@@ -1,4 +1,5 @@
 package data1;
+import java.util.Random;
 
 public class Branch implements FiniteSet {
 
@@ -23,11 +24,11 @@ public class Branch implements FiniteSet {
         return new Leaf();
     }
 
-    public int cardinality(FiniteSet t) {
-        return cardinality(this.left) + 1 + cardinality(this.right);
+    public int cardinality() {
+        return this.left.cardinality() + 1 + this.right.cardinality();
     }
 
-    public boolean isEmptyHuh(FiniteSet t) {
+    public boolean isEmptyHuh() {
         return false;
     }
 
@@ -45,9 +46,9 @@ public class Branch implements FiniteSet {
         if (this.key == elt) {
             return this;
         } else if (this.key > elt) {
-            return new Branch(this.left.add(elt), elt, this.right);
+            return new Branch(this.left.add(elt), this.key, this.right);
         } else {
-            return new Branch(this.left, elt, this.right.add(elt));
+            return new Branch(this.left, this.key, this.right.add(elt));
         }
     }
 
@@ -90,4 +91,14 @@ public class Branch implements FiniteSet {
             return false;
         }
     }
+
+ 
+    // Tests if y is a member of the FiniteSet with x added, if also either x=y
+    // or y is a member of the FiniteSet without x
+    // - This is a test of member and add
+    public boolean memberTest(int x, int y){
+       return ((this.add(x).member(y)) &&
+                ((x ==y) || (this.member(y))));
+    }
+    
 }
